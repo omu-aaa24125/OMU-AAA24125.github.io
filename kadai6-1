@@ -1,1 +1,9 @@
-
+package main
+import "fmt"
+func main() {
+    var tokuten = [...]int{ 93, 48, 73, 88, 34, 46, 62, 80, 37, 54, 45, 30, 55, 75, 76, 63, 88, 53, 94, 94, 76, 84, 64, 99, 30, 72, 45, 47, 91, 77 }
+	var name = [...]string{ "akira", "asuka", "atusi", "daisuke", "etumi", "hideaki", "hirosi", "kazuki", "kazutaka", "keizi", "kenichi", "kumio", "masashi", "mio", "momo", "naoki", "naoko", "noriko", "rie", "sachiko", "takasi", "terumasa", "tuyosi", "yasutaka", "yosiaki", "yosiyuki", "youichi", "yukari", "yumi", "yuusuke"}
+    var i int
+	for i=0; i< len(tokuten); i++ {
+	    fmt.Println(name[i],"さんは",tokuten[i],"点です")
+	}
