@@ -72,8 +72,21 @@
                 '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P29-v2_0.html">国土数値情報 - 学校データ</a>',
             );
 
+            // GeoJSONレイヤーを作成
+            fetch('./27140_1.geojson') // 大阪府の避難所のGeoJSONを非同期読み込み
+                .then((res) => res.json())
+                .then((json) => {
+	            // GeoJSONレイヤーを作成
+	            const markers = L.geoJSON(json)
+		            .bindPopup((layer) => layer.feature.properties.P29_004)    // ポップアップで学校名を表示
+		            .addTo(map);  
+                    // チェックボックス
+                    LayerControl.addOverlay(markers, "避難所")
+	        });
+
             //スケールバー
-            L.control.scale().addTo(map);   
+            L.control.scale().addTo(map);
+            
             
             // ラインレイヤーを作成
             fetch("./line.geojson") // ルートデータの非同期読み込み
